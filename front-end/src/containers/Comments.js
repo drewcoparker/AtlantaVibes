@@ -17,11 +17,11 @@ class Comments extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        if (this.state.comments !== nextProps.comments){
-            this.setState({
-                comments: nextProps.comments
-            });
-        }
+        // if (this.state.comments !== nextProps.comments){
+        //     this.setState({
+        //         comments: nextProps.comments
+        //     });
+        // }
         // console.log(nextProps);
         // create an array that will hold the set of old comments in addition to the new comment
         var commentsArrayWithNewComment = this.state.comments;
@@ -47,11 +47,11 @@ class Comments extends Component {
 
 
             // grab a default image from the back end in case the user has not uploaded a photo
-            var defaultUserImagePath = 'http://localhost:3000/images/avatars/default-user-image.jpg';
+            var defaultUserImagePath = 'http://drewcoparker.com:3030/images/avatars/default-user-image.jpg';
 
             // grab the image that the user uploaded from the back ends
             var avatarImageName = comment.avatar_the_last_airbender;
-            var avatarImagePath = 'http://localhost:3000/images/avatars/'+avatarImageName
+            var avatarImagePath = 'http://drewcoparker.com:3030/images/avatars/'+avatarImageName
 
             // if the user did not upload a picture, use a default image
             if (avatarImageName === null){
@@ -59,7 +59,7 @@ class Comments extends Component {
             }
 
 
-            return commentsArray.push(                
+            return commentsArray.push(
                 <tr key={index}>
                     <td className='avatar-image-td'>
                         <img className='avatar-image' alt="Avatar" src={avatarImagePath} />
@@ -76,12 +76,12 @@ class Comments extends Component {
                 </tr>
             )
         })
-        return (            
+        return (
                 <table className="table table-striped comment-table">
                     <tbody>
                         {commentsArray}
                     </tbody>
-                </table> 
+                </table>
         )
 
     }

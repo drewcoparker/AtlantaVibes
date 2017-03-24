@@ -10,7 +10,7 @@ var RegisterAction = (registerData) => {
 
     var thePromise = $.ajax({
         method: 'POST',
-        url: "http://localhost:3000/register",
+        url: "http://drewcoparker.com:3030/register",
         processData: false,
         dataType: 'json',
         cache: false,
