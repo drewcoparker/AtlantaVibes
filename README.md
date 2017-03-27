@@ -87,14 +87,14 @@ router.post('/postComment', (req, res, next) => {
     var comment = req.body.userPost;
     var username = req.body.username;
     var user_id;
-// Set up MySql query which grabs relevant user id and avatar
+    // Set up MySql query which grabs relevant user id and avatar
     var getUserQuery = `SELECT id, avatar_the_last_airbender FROM user_info WHERE username = ?`;
     connection.query(getUserQuery, [username], (error, results, fields) => {
         if (error) throw error;
         // grab the user id and avatar from the database so that we can pass it to the front end
         user_id = results[0].id;
         var avatar_the_last_airbender = results[0].avatar_the_last_airbender;
-// insert comment in database
+        // insert comment in database
         var insertCommentQuery = `INSERT INTO comments (user_id, comment, festival_id, timestamp) VALUES (?, ?, ?, ?)`;
         connection.query(insertCommentQuery, [user_id, comment, festival_id, timestamp], (error2, results2, fields2) => {
             if (error2) throw error2;
